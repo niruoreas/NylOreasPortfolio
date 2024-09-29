@@ -1,0 +1,74 @@
+
+  
+  @media screen and (max-width: 1200px) {
+    #desktop-nav {
+      display: none;
+    }
+    #hamburger-nav {
+      display: flex;
+    }
+    #experience,
+    .experience-details-container {
+      margin-top: 2rem;
+    }
+    #profile,
+    .section-container {
+      display: block;
+    }
+    .arrow {
+      display: none;
+    }
+    section,
+    .section-container {
+      height: fit-content;
+    }
+    section {
+      margin: 0 5%;
+    }
+    .section__pic-container {
+      width: 275px;
+      height: 275px;
+      margin: 0 auto 2rem;
+    }
+    .about-containers {
+      margin-top: 0;
+    }
+  }
+  
+  @media (max-width: 820px) {
+    .max-width {
+      max-width: 100%;
+      padding: 0 20px;
+      margin: auto;
+    }
+  
+    body {
+      font-size: 16px;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+    }
+  }
+  
+  @media only screen and (max-width: 844px) and (max-height: 390px) and (orientation: landscape) {
+    /* Adjust your styles here for this specific landscape resolution */
+
+    /* Example: Remove or hide specific elements that may not fit */
+    .section__pic-container {
+        display: none; /* Hide the image container */
+    }
+
+    /* Adjust font sizes and margins for better readability */
+    body {
+        font-size: 14px;
+    }
+
+    .section__pic-containerss {
+        display: none;
+    }
+    .about-content img {
+        display: none;
+    }
+
+    .serv-content, .services, .card {
+        font-size: 10px;
+    }
+}
