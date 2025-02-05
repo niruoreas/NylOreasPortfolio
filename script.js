@@ -45,6 +45,7 @@ $(document).ready(function(){
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
+        
     });
 
     $('.carousel').owlCarousel({
@@ -70,3 +71,62 @@ $(document).ready(function(){
     });
 });
 
+
+let currentIndex = 0;
+const items = document.querySelectorAll('.carousel-item');
+const totalItems = items.length;
+
+function changeCarousel(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = totalItems - 1;
+    } else if (currentIndex >= totalItems) {
+        currentIndex = 0;
+    }
+
+    updateCarousel();
+}
+
+function updateCarousel() {
+    const carousel = document.querySelector('.carousel');
+    const offset = -currentIndex * 100; // Move by 100% width per item
+    carousel.style.transform = `translateX(${offset}%)`;
+}
+
+// Lightbox effect for enlarging images
+const images = document.querySelectorAll('.sample-img');
+
+images.forEach(image => {
+    image.addEventListener('click', function () {
+        // Create lightbox container
+        const lightbox = document.createElement('div');
+        lightbox.classList.add('lightbox');
+
+        // Create image inside lightbox
+        const img = document.createElement('img');
+        img.src = this.src;
+        img.classList.add('lightbox-img');
+
+        // Append image to lightbox
+        lightbox.appendChild(img);
+        document.body.appendChild(lightbox);
+
+        // Close lightbox when clicking anywhere
+        lightbox.addEventListener('click', () => {
+            lightbox.remove();
+        });
+    });
+});
+
+function changeCarousel(direction) {
+    currentIndex += direction;
+
+    if (currentIndex < 0) {
+        currentIndex = totalItems - 1;
+    } else if (currentIndex >= totalItems) {
+        currentIndex = 0;
+    }
+
+    updateCarousel();
+}
