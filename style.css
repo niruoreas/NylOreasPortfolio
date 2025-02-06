@@ -791,7 +791,20 @@ button {
     font-weight: bold;
 }
 
-/* Show the button when hovering over the image */
-.image-container:hover a {
-    display: block;
+.home-buttons {
+    margin-top:10px;
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* Centers the buttons horizontally */
+}
+
+.icon {
+    width: 30px; /* Icon size */
+    height: 30px; /* Icon size */
+    filter: brightness(0); /* Black icon */
+    transition: 0.3s ease;
+}
+
+.btn:hover .icon {
+    filter: brightness(10); /* White icon on hover */
 }
