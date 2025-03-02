@@ -34,14 +34,14 @@ $(document).ready(function(){
 
 
     var typed = new Typed(".typing", {
-        strings: ["UI/UX Designer", "Video Editor", "Freelancer", "Gym Rat"],
+        strings: ["UI/UX Designer", "Video Editor", "Freelancer", "Gym Rat", "Front-end Developer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
     });
 
     var typed = new Typed(".typing-2", {
-        strings: ["UI/UX Designer", "Video Editor", "Freelancer", "Gym Rat"],
+        strings: ["UI/UX Designer", "Video Editor", "Freelancer", "Gym Rat", "Front-end Developer"],
         typeSpeed: 100,
         backSpeed: 60,
         loop: true
@@ -72,27 +72,46 @@ $(document).ready(function(){
 });
 
 
-let currentIndex = 0;
-const items = document.querySelectorAll('.carousel-item');
-const totalItems = items.length;
+$(document).ready(function () {
+    const carousel = $('.carousel');
+    const dots = $('.dot');
 
-function changeCarousel(direction) {
-    currentIndex += direction;
+    let currentIndex = 0;
+    let totalItems = $('.carousel-item').length;
 
-    if (currentIndex < 0) {
-        currentIndex = totalItems - 1;
-    } else if (currentIndex >= totalItems) {
-        currentIndex = 0;
+    function updateCarousel() {
+        let offset = -currentIndex * 100; // Move by 100% per item
+        carousel.css('transform', `translateX(${offset}%)`);
+        updateIndicator(currentIndex);
     }
 
-    updateCarousel();
-}
+    function updateIndicator(index) {
+        dots.removeClass('active');
+        dots.eq(index).addClass('active'); // Ensure only the active dot is highlighted
+    }
 
-function updateCarousel() {
-    const carousel = document.querySelector('.carousel');
-    const offset = -currentIndex * 100; // Move by 100% width per item
-    carousel.style.transform = `translateX(${offset}%)`;
-}
+    $('.prev').click(function () {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+        updateCarousel();
+    });
+
+    $('.next').click(function () {
+        currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+        updateCarousel();
+    });
+
+    // Clicking a dot should move to the corresponding slide
+    dots.each(function (i) {
+        $(this).click(function () {
+            currentIndex = i;
+            updateCarousel();
+        });
+    });
+
+    // Initialize first dot as active
+    updateIndicator(currentIndex);
+});
+
 
 // Lightbox effect for enlarging images
 const images = document.querySelectorAll('.sample-img');
@@ -130,3 +149,4 @@ function changeCarousel(direction) {
 
     updateCarousel();
 }
+

@@ -1,5 +1,6 @@
 /*  import google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Highrise&display=swap');
 
 *{
     margin: 0;
@@ -51,11 +52,11 @@ section{
 section .title{
     position: relative;
     text-align: center;
-    font-size: 40px;
-    font-weight: 500;
+    font-size: 90px;
+    font-weight: 100;
     margin-bottom: 60px;
     padding-bottom: 20px;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Highrise', sans-serif;
 }
 section .title::before{
     content: "";
@@ -592,27 +593,48 @@ body {
     box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Navigation buttons */
 button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #008b8b;
-    font-size: 40px;
+    background-color: rgb(255, 255, 255); /* White background */
+    color: red; /* Red arrow */
+    font-size: 60px; /* Increased font size */
     border: none;
-    padding: 10px;
+    padding: 25px 40px; /* Wider and taller button */
     cursor: pointer;
     z-index: 1;
+    border-radius: 60px; /* More rounded for a bubbly look */
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow */
 }
 
 .prev {
-    left: 0;
+    left: 15px;
 }
 
 .next {
-    right: 0;
+    right: 15px;
 }
+
+.carousel-indicator {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 5px;
+    background-color: #ccc; /* Default color */
+    border-radius: 50%; /* Makes it a circle */
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: red; /* Active page indicator */
+}
+
 
 /* Lightbox effect */
 .lightbox {
@@ -691,21 +713,6 @@ button {
     border-radius: 10px;
 }
 
-.visit-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    background: #a40a0a;
-    color: white;
-    padding: 12px 18px;
-    font-size: 60px;
-    font-weight: bold;
-    border: none;
-    border-radius: 10px;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
 
 .figma-container:hover .visit-btn {
     opacity: 1;
@@ -808,3 +815,69 @@ button {
 .btn:hover .icon {
     filter: brightness(10); /* White icon on hover */
 }
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.visit-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #a40a0a;
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    font-size: 39px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    font-family: Poppins, sans-serif;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.image-container:hover .visit-btn {
+    opacity: 1;
+}
+
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center all items */
+    gap: 20px; /* Adjust spacing */
+    max-width: 900px; /* Set max width for centering */
+    margin: 0 auto; /* Ensure it's centered */
+}
+
+.video-container {
+    width: calc(33.333% - 20px); /* Ensures 3 videos per row */
+    max-width: 320px;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px; /* Optional styling */
+}
+
+.carousel-item h3 {
+    font-family: 'Highrise', sans-serif;
+    font-size: 90px;
+    color: #00a896; /* Adjust color as needed */
+    text-align: center;
+    margin-top: 15px;
+    font-weight: lighter;
+}
+
+.my-projects h2 {
+    position: relative;
+    text-align: center;
+    font-size: 90px;
+    font-weight: 100;
+    margin-bottom: -40px;
+    padding-bottom: -40px;
+    font-family: 'Highrise', sans-serif;
+}
+
