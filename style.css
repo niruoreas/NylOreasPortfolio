@@ -56,7 +56,8 @@ section .title{
     font-weight: 100;
     margin-bottom: 60px;
     padding-bottom: 20px;
-    font-family: 'Highrise', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
 }
 section .title::before{
     content: "";
@@ -721,27 +722,29 @@ button {
 
 /* Coding section only */
 #coding-sample-images {
-    display: flex;
-    flex-direction: column; /* Arrange items vertically */
-    align-items: center; /* Center horizontally */
-    gap: 20px; /* Space between images */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-rows: repeat(2, 1fr); /* 2 rows */
+    gap: 20px; /* Space between items */
+    justify-content: center;
+    align-items: center;
     padding: 20px;
 }
 
 /* Wrapper for each image and button */
 .coding-sample-container {
-    position: relative; /* Position relative for absolute button */
+    position: relative; /* Allows absolute positioning for the button */
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px; /* Space between image and button */
 }
 
-/* Unique class for coding images */
+/* Ensure all images are the same size */
 .coding-sample-img {
-    width: 350px; /* Adjust size */
-    height: 250px; /* Keep aspect ratio */
-    object-fit: cover;
+    width: 100%; /* Adjust based on grid */
+    max-width: 350px; /* Keep consistency */
+    height: 250px; /* Fixed height */
+    object-fit: cover; /* Ensure images maintain proportions */
     border-radius: 10px;
     transition: transform 0.3s ease-in-out;
 }
@@ -754,10 +757,10 @@ button {
 /* Button styles: hidden by default */
 .coding-sample-btn {
     position: absolute;
-    bottom: 20px; /* Position the button near the bottom */
+    bottom: 20px;
     left: 50%;
-    transform: translateX(-50%); /* Center the button */
-    display: none; /* Hide button by default */
+    transform: translateX(-50%);
+    display: none;
     padding: 10px 20px;
     background-color: #a40a0a;
     color: white;
@@ -767,7 +770,7 @@ button {
     transition: background 0.3s ease;
 }
 
-/* Button appears only when hovering over the image */
+/* Show button on hover */
 .coding-sample-container:hover .coding-sample-btn {
     display: block;
 }
@@ -776,6 +779,7 @@ button {
 .coding-sample-btn:hover {
     background-color: #8a0808;
 }
+
 
 /* Style for the image container */
 .image-container {
@@ -863,7 +867,8 @@ button {
 }
 
 .carousel-item h3 {
-    font-family: 'Highrise', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
     font-size: 90px;
     color: #00a896; /* Adjust color as needed */
     text-align: center;
@@ -878,6 +883,7 @@ button {
     font-weight: 100;
     margin-bottom: -40px;
     padding-bottom: -40px;
-    font-family: 'Highrise', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
 }
 
